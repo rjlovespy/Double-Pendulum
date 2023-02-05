@@ -1,1 +1,2 @@
-# Double-Pendulum
+# Double Pendulum
+Using the Lagrangian approach, the equations of motion(Euler-Lagrange equations) of a double pendulum have been derived. These equations are a system of 2 coupled second-order ordinary differential equations which have been converted into a system of 4 coupled first-order ordinary differential equations. Using the fourth-order Runge-Kutta method, its solution has been obtained and then its behavior has been simulated.
