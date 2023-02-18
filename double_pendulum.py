@@ -37,9 +37,6 @@ x2 = l1*np.sin(theta_1) + l2*np.sin(theta_2)
 y2 = -l1*np.cos(theta_1) - l2*np.cos(theta_2)
 
 
-""" 
-Initializing objects for animation
-"""
 fig = plt.figure()
 ax=plt.axes(xlim=(-(2*l1)-2,(2*l1)+2),ylim=(-(2*l1)-2,12))
 bar1 = plt.Line2D((0,x1[0]),(0,y1[0]),color="blue",lw=1)
@@ -48,9 +45,6 @@ bar2 = plt.Line2D((x1[0],x2[0]),(y1[0],y2[0]),color="blue",lw=1)
 bob2 = plt.Circle((x2[0],y2[0]),0.25, fc="red", ec="red")
 
 
-""" 
-Defining all the frames for the animation
-"""
 def update(i):
     bar1 = plt.Line2D((0,x1[i]),(0,y1[i]),color="blue",lw=1)
     ax.add_line(bar1)
@@ -63,15 +57,12 @@ def update(i):
     return bar1, bob1, bar2, bob2,
 
 
-""" 
-Calling the Animation Function
-"""
 anime = ani.FuncAnimation(fig, update, frames=len(t), interval=50, blit=True, repeat=True)
 ax.set_title(r"When $m_1=4,m_2=2$, $l_1=l_2=5$, $\theta_{1}(t=0)=\pi$, $\theta_{2}(t=0)=\frac{\pi}{2}$", color="fuchsia")
-fig.suptitle("Double Pendulum", color="fuchsia")
+ax.annotate("Courtesy of Rishikesh Jha",(l1+3.5,(-2*l1)-1.5),color="fuchsia")
+ax.axis("square")
 ax.set_facecolor("black")
 fig.patch.set_facecolor("black")
-fig.tight_layout()
-plt.annotate("Courtesy of Rishikesh Jha",(l1+3.5,(-2*l1)-1.5),color="fuchsia")
-plt.axis("scaled")
+fig.suptitle("Double Pendulum", color="fuchsia")
+# anime.save("double_pendulum.gif")
 plt.show()
